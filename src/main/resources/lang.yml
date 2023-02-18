@@ -1,0 +1,29 @@
+###################
+# CashFlow V1.0.0 #
+#    Lang.yml     #
+###################
+
+errors:
+  not-a-player: "&cError, you have to be a player to do this!"
+  no-permission: "&cError, you don't have permission!"
+  player-dont-exist: "&cError, the player &b%player% &cdoes not have an account!"
+  not-numeric: "&cError, please specify a number!"
+  no-enough-money: "&cError, you don't have enough money! &7(&b%currentmoney% &6/ &b%neededmoney%&7)"
+
+messages:
+  balance:
+    yourself: "&7You have &a%money% &6coin(s)"
+    others: "&b%target% &7has &a%money% &6coin(s)"
+  pay:
+    sender: "&7You have sent &b%amount% &6coin(s) &7to &a%target%"
+    receiver: "&7You have received &b%amount% &6coin(s) &7from &a%sender%"
+  add:
+    admin: "&7You have added &b%amount% &6coin(s) &7to &a%target%"
+    target: "&a%admin% &7added &b%amount% &6coin(s) &7to your account"
+  remove:
+    admin: "&7You have removed &b%amount% &6coin(s) &7to &a%target%"
+    target: "&a%admin% &7has removed &b%amount% &6coin(s) &7from your account"
+  set:
+    admin: "&7You have set &a%target% &7account to &b%amount% &6coin(s)"
+    target: "&7Your account has been set to &b%amount% &6coin(s) &7by &a%admin%"
+  reload: "&cPlugin successfully reloaded"

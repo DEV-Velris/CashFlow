@@ -1,0 +1,13 @@
+###################
+# CashFlow V1.0.0 #
+#   Config.yml    #
+###################
+
+# The plugin prefix
+prefix: "&7[&eCashFlow&7] &r"
+
+vault:
+  # Requires reboot if changed
+  # true -> CashFlow will be implemented in Vault as an economy plugin. (If you want to make CashFlow your primary economy)
+  # false -> CashFlow will not be implemented in Vault as an economy plugin. (If you want to make CashFlow your third-party economy)
+  enable: true

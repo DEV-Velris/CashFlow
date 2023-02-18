@@ -1,0 +1,45 @@
+name: CashFlow
+version: '${project.version}'
+main: fr.velris.cashflow.CashFlow
+api-version: 1.13
+softdepend:
+  - Vault
+authors: [ Velris ]
+description: CashFlow is a Minecraft plugin that introduces a virtual economy to your server, allowing players to earn and spend in-game currency on various items and activities.
+website: https://github.com/DEV-Velris/CashFlow
+commands:
+  cash:
+    description: Main command of the plugin
+permissions:
+  cash.pay:
+    description: Allows you tu use /cash pay
+    default: op
+  cash.balance:
+    description: Allows you tu use /cash balance
+    default: op
+  cash.baltop:
+    description: Allows you tu use /cash baltop
+    default: op
+  cash.add:
+    description: Allows you tu use /cash add
+    default: op
+  cash.remove:
+    description: Allows you tu use /cash remove
+    default: op
+  cash.set:
+    description: Allows you tu use /cash set
+    default: op
+  cash.reload:
+    description: Allows you tu use /cash reload
+    default: op
+  cash.*:
+    description: Allows you tu use every /cash command
+    default: op
+    children:
+      cash.pay: true
+      cash.balance: true
+      cash.baltop: true
+      cash.add: true
+      cash.remove: true
+      cash.set: true
+      cash.reload: true
