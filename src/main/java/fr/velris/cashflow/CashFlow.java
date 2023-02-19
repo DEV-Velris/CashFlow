@@ -38,19 +38,13 @@ public final class CashFlow extends JavaPlugin {
      */
     private VImplement implement;
 
-    /*
-    FILES
-     */
-    public YamlConfiguration config;
-    public YamlConfiguration lang;
-
     @Override
     public void onEnable() {
         instance = this;
 
         //Files
         files = new MFiles();
-        files.loadConfigs(); // Load configuration files
+        files.LoadFiles();
         data = new UData();
         data.LoadConfig();
         data.LoadMessages();
@@ -58,7 +52,6 @@ public final class CashFlow extends JavaPlugin {
         if (!getServer().getPluginManager().isPluginEnabled("Vault") && data.VAULT_ENABLED) {
             Log(Level.SEVERE, "Vault plugin not found");
             Log(Level.SEVERE, "If you don't want to use Vault with CashFlow modify it in the configuration file !");
-            files.saveAllConfigs();
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -91,7 +84,6 @@ public final class CashFlow extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        files.saveAllConfigs();
         if (started) {
             database.disconnect();
         }

@@ -1,5 +1,6 @@
 package fr.velris.cashflow.utils;
 
+import dev.dejvokep.boostedyaml.YamlDocument;
 import fr.velris.cashflow.CashFlow;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -37,7 +38,7 @@ public class UData {
     public String LANG_RELOAD;
 
     public void LoadConfig() {
-        YamlConfiguration config = plugin.config;
+        YamlDocument config = plugin.getFiles().configDocument;
 
         PREFIX = config.getString("prefix").replace("&", "§");
         VAULT_ENABLED = config.getBoolean("vault.enable");
@@ -45,7 +46,7 @@ public class UData {
     }
 
     public void LoadMessages() {
-        YamlConfiguration lang = plugin.lang;
+        YamlDocument lang = plugin.getFiles().langDocument;
 
         LANG_ERRORS_NOT_A_PLAYER = lang.getString("errors.not-a-player").replace("&", "§");
         LANG_ERRORS_NO_PERMISSION = lang.getString("errors.no-permission").replace("&", "§");

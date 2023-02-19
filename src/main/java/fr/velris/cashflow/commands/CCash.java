@@ -7,6 +7,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
+import java.util.logging.Level;
+
 public class CCash implements CommandExecutor {
 
     private final CashFlow plugin = CashFlow.getInstance();
@@ -48,10 +51,18 @@ public class CCash implements CommandExecutor {
 
             } else if (args[0].equalsIgnoreCase("reload")) {
                 if (sender.hasPermission("cash.reload")) {
-                    plugin.getFiles().loadConfigs();
-                    plugin.getData().LoadConfig();
-                    plugin.getData().LoadMessages();
-                    sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_RELOAD);
+                    try {
+                        plugin.getFiles().configDocument.save();
+                        plugin.getFiles().configDocument.reload();
+                        plugin.getFiles().langDocument.save();
+                        plugin.getFiles().langDocument.reload();
+
+                        plugin.getData().LoadConfig();
+                        plugin.getData().LoadMessages();
+                        sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_RELOAD);
+                    } catch (IOException exception) {
+                        plugin.Log(Level.SEVERE, exception.getMessage());
+                    }
                 } else {
                     sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_ERRORS_NO_PERMISSION);
                 }

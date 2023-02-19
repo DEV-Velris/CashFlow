@@ -2,6 +2,7 @@
 # CashFlow V1.0.0 #
 #    Lang.yml     #
 ###################
+file-version: 1
 
 errors:
   not-a-player: "&cError, you have to be a player to do this!"
