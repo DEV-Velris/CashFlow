@@ -8,7 +8,6 @@ import fr.velris.cashflow.utils.UCash;
 import fr.velris.cashflow.utils.UData;
 import fr.velris.cashflow.vault.VImplement;
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
