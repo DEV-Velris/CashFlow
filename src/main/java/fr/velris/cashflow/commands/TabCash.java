@@ -46,11 +46,13 @@ public class TabCash implements TabCompleter {
             if (sender.hasPermission("cash.set")) {
                 list.add("set");
             }
+            list.add("help");
         }
 
         if (args.length == 2) {
             if (args[0].equalsIgnoreCase("pay") || args[0].equalsIgnoreCase("add")
-                || args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("set")) {
+                || args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("set")
+                    || args[0].equalsIgnoreCase("balance")) {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     list.add(player.getName());
                 }

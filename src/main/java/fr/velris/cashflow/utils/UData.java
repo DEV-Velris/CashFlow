@@ -2,7 +2,10 @@ package fr.velris.cashflow.utils;
 
 import dev.dejvokep.boostedyaml.YamlDocument;
 import fr.velris.cashflow.CashFlow;
-import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
 
 public class UData {
 
@@ -36,6 +39,9 @@ public class UData {
     public String LANG_SET_TARGET;
     //Others
     public String LANG_RELOAD;
+    //Help
+    public List<String> LANG_PLAYER_HELP = new ArrayList<>();
+    public List<String> LANG_ADMIN_HELP = new ArrayList<>();
 
     public void LoadConfig() {
         YamlDocument config = plugin.getFiles().configDocument;
@@ -62,11 +68,24 @@ public class UData {
         LANG_ADD_TARGET = lang.getString("messages.add.target").replace("&", "§");
         LANG_REMOVE_ADMIN = lang.getString("messages.remove.admin").replace("&", "§");
         LANG_REMOVE_TARGET = lang.getString("messages.remove.target").replace("&", "§");
-        LANG_SET_ADMIN = lang.getString("messages.set.admin");
+        LANG_SET_ADMIN = lang.getString("messages.set.admin").replace("&", "§");
         LANG_SET_TARGET = lang.getString("messages.set.target").replace("&", "§");
 
         LANG_RELOAD = lang.getString("messages.reload").replace("&", "§");
 
+        LANG_PLAYER_HELP = lang.getStringList("help.player");
+        for (int i = 0; i < LANG_PLAYER_HELP.size(); i++) {
+            String str = LANG_PLAYER_HELP.get(i);
+            str = str.replace("&", "§");
+            LANG_PLAYER_HELP.set(i, str);
+        }
+
+        LANG_ADMIN_HELP = lang.getStringList("help.admin");
+        for (int i = 0; i < LANG_ADMIN_HELP.size(); i++) {
+            String str = LANG_ADMIN_HELP.get(i);
+            str = str.replace("&", "§");
+            LANG_ADMIN_HELP.set(i, str);
+        }
     }
 
 }

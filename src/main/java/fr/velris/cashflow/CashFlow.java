@@ -1,5 +1,6 @@
 package fr.velris.cashflow;
 
+import fr.velris.cashflow.api.CashFlowAPI;
 import fr.velris.cashflow.managers.MCommands;
 import fr.velris.cashflow.managers.MDatabase;
 import fr.velris.cashflow.managers.MFiles;
@@ -36,6 +37,7 @@ public final class CashFlow extends JavaPlugin {
     VAULT
      */
     private VImplement implement;
+    private CashFlowAPI cashFlowAPI;
 
     @Override
     public void onEnable() {

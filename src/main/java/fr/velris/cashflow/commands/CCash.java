@@ -22,7 +22,7 @@ public class CCash implements CommandExecutor {
 
                 if (sender.hasPermission("cash.balance")) {
                     sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_BALANCE_YOURSELF
-                            .replace("%money", plugin.getCash().getUserCash(sender.getName())+""));
+                            .replace("%money%", plugin.getCash().getUserCash(sender.getName())+""));
                 } else {
                     sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_ERRORS_NO_PERMISSION);
                 }
@@ -39,7 +39,7 @@ public class CCash implements CommandExecutor {
                 if (sender instanceof Player) {
                     if (sender.hasPermission("cash.balance")) {
                         sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_BALANCE_YOURSELF
-                                .replace("%money", plugin.getCash().getUserCash(sender.getName())+""));
+                                .replace("%money%", plugin.getCash().getUserCash(sender.getName())+""));
                     } else {
                         sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_ERRORS_NO_PERMISSION);
                     }
@@ -78,6 +78,23 @@ public class CCash implements CommandExecutor {
 
                 return true;
 
+            } else if (args[0].equalsIgnoreCase("help")) {
+                if (sender.hasPermission("cash.add") || sender.hasPermission("cash.remove")
+                    || sender.hasPermission("cash.set") || sender.hasPermission("cash.reload") || sender.isOp()) {
+                    for (String string : plugin.getData().LANG_PLAYER_HELP) {
+                        sender.sendMessage(string);
+                    }
+                    for (String string : plugin.getData().LANG_ADMIN_HELP) {
+                        sender.sendMessage(string);
+                    }
+                } else {
+                    for (String string : plugin.getData().LANG_PLAYER_HELP) {
+                        sender.sendMessage(string);
+                    }
+                }
+
+                return true;
+
             } else {
                 if (plugin.getCash().hasAccount(args[0])) {
                     sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_BALANCE_OTHERS
@@ -89,6 +106,20 @@ public class CCash implements CommandExecutor {
 
                 return true;
 
+            }
+
+        } else if (args.length == 2) {
+
+            if (args[0].equalsIgnoreCase("balance")) {
+                if (plugin.getCash().hasAccount(args[1])) {
+                    sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_BALANCE_OTHERS
+                            .replace("%target%", args[1])
+                            .replace("%money%", plugin.getCash().getUserCash(args[1])+""));
+                } else {
+                    sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_ERRORS_PLAYER_DONT_EXIST.replace("%player%", args[0]));
+                }
+
+                return true;
             }
 
         } else if (args.length == 3) {
@@ -223,10 +254,10 @@ public class CCash implements CommandExecutor {
                             if (plugin.getCash().setCash(args[1], set)) {
                                 sender.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_SET_ADMIN
                                         .replace("%target%", args[1])
-                                        .replace("%amount%", sender+""));
+                                        .replace("%amount%", sender.getName()+""));
                                 if (target != null) {
                                     target.sendMessage(plugin.getData().PREFIX + plugin.getData().LANG_SET_TARGET
-                                            .replace("%amount%", sender+"")
+                                            .replace("%amount%", set+"")
                                             .replace("%admin%", sender.getName()));
                                 }
                             } else {

@@ -28,3 +28,20 @@ messages:
     admin: "&7You have set &a%target% &7account to &b%amount% &6coin(s)"
     target: "&7Your account has been set to &b%amount% &6coin(s) &7by &a%admin%"
   reload: "&cPlugin successfully reloaded"
+
+help:
+  admin:
+    - "&e/cash &2add &c[&rplayer&c] [&ramount&c] &f» &7Adds money to a player."
+    - "&e/cash &2remove &c[&rplayer&c] [&ramount&c] &f» &7Take money from a player."
+    - "&e/cash &2set &c[&rplayer&c] [&ramount&c] &f» &7Set a player's money."
+    - "&e/cash &2reload &f» &7Reloads the configuration and messages."
+  player:
+    - "&7─── &e&lCashFlow &7───"
+    - "&7Options:"
+    - "&7[] &f» &cRequired"
+    - "&7<> &f» &7Optional"
+    - ""
+    - "&e/cash &7<player> &f» &7See your money or another player's money."
+    - "&e/cash &2balance <player> &f» &7See your money or another player's money."
+    - "&e/cash &2baltop &f» &7Shows the top 10 richest people on the server."
+    - "&e/cash &2pay &c[&rplayer&c] [&ramount&c] &f» &7Allows you to send money to a player."

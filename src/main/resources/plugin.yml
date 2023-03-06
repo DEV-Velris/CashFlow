@@ -10,6 +10,7 @@ website: https://github.com/DEV-Velris/CashFlow
 commands:
   cash:
     description: Main command of the plugin
+    usage: /<command> help
 permissions:
   cash.pay:
     description: Allows you tu use /cash pay
